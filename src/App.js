@@ -24,6 +24,10 @@ function App() {
   const onDeleteNote = (idToDelete) => {
     setNotes(notes.filter((note) => note.id !== idToDelete))
   };
+
+  const getActiveNote = () => {
+    return notes.find((note) => note.id === activeNote)
+  }
   
     return (
     <div className="App">
@@ -34,7 +38,9 @@ function App() {
         activeNote={activeNote}
         setActiveNote={setActiveNote} 
       />
-      <Main />
+      <Main
+      activeNote={getActiveNote()}
+      />
     </div>
   );
 }
